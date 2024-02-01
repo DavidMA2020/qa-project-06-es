@@ -66,51 +66,37 @@ def negative_assert_no_name_code_400(kit_body):
 # Prueba 1. El número permitido de caracteres (1)
 # El parámetro "name" contiene 1 caracter
 def test_create_kit_1_letter_in_name_get_success_response():
-    positive_assert("a")
+    positive_assert(data.name_one_letter)
 
 # Prueba 2. El número permitido de caracteres (511)
 # El parámetro "name" contiene 511 caracteres
 def test_create_kit_511_letter_in_name_get_success_response():
-    positive_assert("Abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"\
-                    "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"\
-                    "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd"\
-                    "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdab"\
-                    "cdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcda"\
-                    "bcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcda"\
-                    "bcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc"\
-                    "dabcdabcdabcdabcdabC")
+    positive_assert(data.name_511_letter)
 
 # Prueba 3. El número de caracteres es menor que la cantidad permitida (0)
 # El parámetro "name" contiene 0 caracteres
 def test_create_kit_0_letter_in_name_get_error_response():
-    negative_assert_code_400("")
+    negative_assert_code_400(data.name_zero_letter)
 
 # Prueba 4. El número de caracteres es mayor que la cantidad permitida (512)
 # El parámetro "name" contiene 512 caracteres
 def test_create_kit_512_letter_in_name_get_error_response():
-    negative_assert_code_400("Abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc" \
-                    "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc" \
-                    "dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd" \
-                    "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdab" \
-                    "cdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcda" \
-                    "bcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcda" \
-                    "bcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc" \
-                    "dabcdabcdabcdabcdabcD")
+    negative_assert_code_400(data.name_512_letter)
 
 # Prueba 5. Se permiten caracteres especiales
 # El parámetro "name" contiene caracteres especiales
 def test_create_kit_has_special_symbol_in_name_get_success_response():
-    positive_assert("\"№%@\",")
+    positive_assert(data.name_with_special_symbol)
 
 # Prueba 6. Se permiten espacios
 # El parámetro "name" contiene espacios
 def test_create_kit_has_space_in_name_get_success_response():
-    positive_assert(" A Aaa ")
+    positive_assert(data.name_with_spaces)
 
 # Prueba 7. Se permiten números
 # El parámetro "name" contiene numeros
 def test_create_kit_has_number_in_name_get_success_response():
-    positive_assert("123")
+    positive_assert(data.name_with_numbers)
 
 # Prueba 8. El parámetro no se pasa en la solicitud
 # La solicitud no contiene el parámetro "name"
@@ -126,4 +112,4 @@ def test_create_kit_no_name_get_error_response():
 # Prueba 9. Se ha pasado un tipo de parámetro diferente (número)
 # El parámetro "name" es de tipo numerico
 def test_create_kit_number_type_name_get_success_response():
-    negative_assert_code_400(123)
+    negative_assert_code_400(data.name_of_type_number)
