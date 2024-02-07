@@ -5,10 +5,21 @@
   - Ir a la pestaña de la consola y escribir: pip install [nombre_del_paquete]
 - Configurar la variable URL_SERVICE en el archivo: configuration.py con una URL activa.
 - Para ejecutar las pruebas se puede hacer de las siguientes formas
-  - Ejecutando el comando pytest en el terminal de PyCharm.
+  - Ejecutando el comando "pytest create_kit_name_kit_test.py" en el terminal de PyCharm.
   - Ejecutar cada pruebas de forma individual dando clic en el
-    boton que aparece al costado izquierdo de cada una de las funciones de prueba.
-  - Ejecutando el documento actual, seleccionando la opción en la parte superior.
+    boton verde que aparece al costado izquierdo de cada una de las funciones de prueba en el archivo "create_kit_name_kit_test.py".
+  - Seleccionamos el archivo "create_kit_name_kit_test.py", luego en la parte superior deplegamos las opciones y seleccionamos la opción "Current File" para ejecutar todas las pruebas.
+  - Otra forma de ejecucion es ir a la opcion Run>Edit Configurations
+    - Dar clic en el boton + 
+    - Seleccionar la opcion: Python tests>pytest
+    - Agregar un nombre en la opcion "Name"
+    - En la parte derecha en la opcion de "Target" seleccionamos Script path
+    - Dar clic en el icono de la carpeta en la caja que esta debajo de la opcion de Target y seleccionar el archivo "create_kit_name_kit_test.py"
+    - En la opcion de "Python interpreter" seleccionar la opcion por defecto
+    - luego dar clic en el boton Apply
+    - luego dar clic en el boton Ok, despues de esto se cerrara la ventana de configuracion
+  - luego validar que en la parte superior que este seleccionado el nombre que has escrito.
+  - Dar clic en el boton Play de color verde que esta al costado del nombre y se ejecutara automaticamnete las pruebas.
 - Para el desarrollo de la automatizacion de estas pruebas se ha utilizado PyCharm con el lenguaje Pyton,
   dentro del desarrollo se ha utilizado lo siguiente:
   - funciones
